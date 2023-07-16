@@ -21,5 +21,6 @@ export const helloWorld = onRequest((request, response) => {
 
 const rebrickableKey = defineSecret("REBRICKABLE_KEY");
 export const getRebrickableKey = onRequest((request, response) => {
+  logger.log(rebrickableKey);
   response.send(rebrickableKey.value());
 });

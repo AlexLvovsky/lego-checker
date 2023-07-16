@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from '@angular/fire/auth';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -18,7 +19,8 @@ export class RegisterComponent implements OnInit {
     @Optional() private auth: Auth,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -43,23 +45,25 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    console.log(this.form.controls['email'].value);
-
     this.loading = true;
-    createUserWithEmailAndPassword(
-      this.auth,
-      this.form.controls['email'].value,
-      this.form.controls['password'].value
-    )
+    this.authService
+      .signUp(
+        this.form.controls['firstName'].value,
+        this.form.controls['lastName'].value,
+        this.form.controls['email'].value,
+        this.form.controls['password'].value
+      )
       .then(userCredential => {
         // Signed in
         const user = userCredential.user;
         updateProfile(userCredential.user, {
-          displayName: this.form.controls['firstName'].value,
+          displayName: `${this.form.controls['firstName'].value} ${this.form.controls['lastName'].value}`,
         })
           .then(result => {
-              console.log(result);
-              this.loading = false;
+            console.log(userCredential.user.displayName);
+            this.authService.updateUserName(userCredential.user.displayName);
+
+            this.loading = false;
           })
           .catch(error => {
             console.log(error);
@@ -71,5 +75,30 @@ export class RegisterComponent implements OnInit {
         const errorMessage = error.message;
         // ..
       });
+    // createUserWithEmailAndPassword(
+    //   this.auth,
+    //   this.form.controls['email'].value,
+    //   this.form.controls['password'].value
+    // )
+    //   .then(userCredential => {
+    //     // Signed in
+    //     const user = userCredential.user;
+    //     updateProfile(userCredential.user, {
+    //       displayName: this.form.controls['firstName'].value,
+    //     })
+    //       .then(result => {
+    //         console.log(result);
+    //         this.loading = false;
+    //       })
+    //       .catch(error => {
+    //         console.log(error);
+    //       });
+    //     // ...
+    //   })
+    //   .catch(error => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     // ..
+    //   });
   }
 }

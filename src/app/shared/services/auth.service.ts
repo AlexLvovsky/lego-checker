@@ -279,7 +279,7 @@ export class AuthService {
     private router: Router
   ) {
     this.afAuth.authState.subscribe(user => {
-      if (user) {
+      if (user) {        
         this.username = user.displayName;
         this.isLoggedIn = true;
       } else {
@@ -289,8 +289,14 @@ export class AuthService {
     });
   }
 
-  signUp(email: string, password: string): Promise<any> {
-    return this.afAuth.createUserWithEmailAndPassword(email, password);
+  signUp(firstName: string, lastName: string, email: string, password: string): Promise<any> {
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        userCredentials.user?.updateProfile({
+          displayName: `${firstName} ${lastName}`
+        })
+        userCredentials.user?.reload()
+    });
   }
 
   emailSignIn(email: string, password: string): Promise<any> {
@@ -308,5 +314,9 @@ export class AuthService {
 
   getCurrentUser(): any {
     return this.afAuth.currentUser;
+  }
+
+  updateUserName(userName: string) {
+    this.username = userName;
   }
 }

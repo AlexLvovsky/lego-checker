@@ -23,7 +23,7 @@ export class HomePageComponent {
     public authService: AuthService,
     private functions: AngularFireFunctions
   ) {
-    const callable = this.functions.httpsCallable('getRebrickableKey');
-    this.data$ = callable({});
+    // const callable = this.functions.httpsCallable('getRebrickableKey');
+    // this.data$ = callable({});
   }
 }
