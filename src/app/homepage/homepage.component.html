@@ -1,0 +1,18 @@
+<nav id="header" class="navbar navbar-expand-lg sticky-top mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/"> LEGO Checker </a>
+    {{ data$ | async }}
+    <div class="navbar-user">
+      <ng-container *ngIf="authService.isLoggedIn; else guestTemplate">
+        <span>Hello, {{ authService.username }}!</span>
+        <button (click)="authService.logout()">Logout</button>
+      </ng-container>
+      <ng-template #guestTemplate>
+        <span>Hello, guest!</span>
+        <button routerLink="/auth/login">Login</button>
+      </ng-template>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

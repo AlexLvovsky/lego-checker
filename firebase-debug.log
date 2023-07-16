@@ -1,0 +1,152 @@
+[debug] [2023-07-16T13:42:40.443Z] ----------------------------------------------------------------------
+[debug] [2023-07-16T13:42:40.445Z] Command:       /Users/alexlvovsky/.nvm/versions/node/v16.17.0/bin/node /Users/alexlvovsky/.nvm/versions/node/v16.17.0/bin/firebase emulators:start --import=./
+[debug] [2023-07-16T13:42:40.445Z] CLI Version:   12.4.4
+[debug] [2023-07-16T13:42:40.445Z] Platform:      darwin
+[debug] [2023-07-16T13:42:40.445Z] Node Version:  v16.17.0
+[debug] [2023-07-16T13:42:40.446Z] Time:          Sun Jul 16 2023 16:42:40 GMT+0300 (Israel Daylight Time)
+[debug] [2023-07-16T13:42:40.446Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-16T13:42:40.528Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-16T13:42:40.529Z] > authorizing via signed-in user (alex.lvovskyy@gmail.com)
+[info] i  emulators: Starting emulators: auth, functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions"}}
+[debug] [2023-07-16T13:42:41.606Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-07-16T13:42:41.607Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-07-16T13:42:41.607Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-07-16T13:42:41.614Z] [hub] writing locator at /var/folders/5_/8t33bvb12j53hfnb6lpdtkyc0000gr/T/hub-lego-checker.json
+[info] i  firestore: Detected non-emulator Database export at /Users/alexlvovsky/learning/lego-checker {"metadata":{"emulator":{"name":"database"},"message":"Detected non-emulator Database export at /Users/alexlvovsky/learning/lego-checker"}}
+[debug] [2023-07-16T13:42:42.133Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-07-16T13:42:42.134Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-07-16T13:42:42.134Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mfirestore, database, hosting, pubsub, storage\u001b[22m"}}
+[debug] [2023-07-16T13:42:42.138Z] defaultcredentials: writing to file /Users/alexlvovsky/.config/firebase/alex_lvovskyy_gmail.com_application_default_credentials.json
+[debug] [2023-07-16T13:42:42.140Z] Setting GAC to /Users/alexlvovsky/.config/firebase/alex_lvovskyy_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/alexlvovsky/.config/firebase/alex_lvovskyy_gmail.com_application_default_credentials.json"}}
+[debug] [2023-07-16T13:42:42.141Z] > refreshing access token with scopes: []
+[debug] [2023-07-16T13:42:42.143Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-07-16T13:42:42.143Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-16T13:42:42.433Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-07-16T13:42:42.433Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-16T13:42:42.498Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/lego-checker/adminSdkConfig [none]
+[debug] [2023-07-16T13:42:42.942Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/lego-checker/adminSdkConfig 200
+[debug] [2023-07-16T13:42:42.942Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/lego-checker/adminSdkConfig {"projectId":"lego-checker","storageBucket":"lego-checker.appspot.com"}
+[debug] [2023-07-16T13:42:49.397Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-07-16T13:42:49.397Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-07-16T13:42:49.398Z] Starting Emulator UI with command {"binary":"node","args":["/Users/alexlvovsky/.cache/firebase/emulators/ui-v1.11.7/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/alexlvovsky/.cache/firebase/emulators/ui-v1.11.7/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-07-16T13:42:49.541Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-07-16T13:42:49.541Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "/Users/alexlvovsky/learning/lego-checker/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/alexlvovsky/learning/lego-checker/functions\" for Cloud Functions..."}}
+[debug] [2023-07-16T13:42:49.668Z] Validating nodejs source
+[debug] [2023-07-16T13:42:51.240Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "npm run lint && tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^4.9.0"
+  },
+  "private": true
+}
+[debug] [2023-07-16T13:42:51.240Z] Building nodejs source
+[debug] [2023-07-16T13:42:51.241Z] Failed to find version of module node: reached end of search path /Users/alexlvovsky/learning/lego-checker/functions/node_modules
+[warn] ⚠  functions: Your requested "node" version "18" doesn't match your global version "16". Using node@16 from host. 
+[debug] [2023-07-16T13:42:51.246Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-07-16T13:42:51.259Z] Found firebase-functions binary at '/Users/alexlvovsky/learning/lego-checker/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8041
+
+[debug] [2023-07-16T13:42:51.777Z] Got response from /__/functions.yaml {"endpoints":{"helloWorld":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"helloWorld"},"getRebrickableKey":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getRebrickableKey"}},"specVersion":"v1alpha1","requiredAPIs":[],"params":[{"type":"secret","name":"REBRICKABLE_KEY"}]}
+[info] shutdown requested via /__/quitquitquit
+
+[debug] [2023-07-16T13:42:51.789Z] >>> [apiv2][query] GET https://secretmanager.googleapis.com/v1/projects/lego-checker/secrets/REBRICKABLE_KEY [none]
+[debug] [2023-07-16T13:42:52.256Z] <<< [apiv2][status] GET https://secretmanager.googleapis.com/v1/projects/lego-checker/secrets/REBRICKABLE_KEY 200
+[debug] [2023-07-16T13:42:52.256Z] <<< [apiv2][body] GET https://secretmanager.googleapis.com/v1/projects/lego-checker/secrets/REBRICKABLE_KEY {"name":"projects/1027901290632/secrets/REBRICKABLE_KEY","replication":{"automatic":{}},"createTime":"2023-07-16T12:26:31.384919Z","labels":{"firebase-managed":"true"},"etag":"\"160099cab90b57\""}
+[debug] [2023-07-16T13:42:52.257Z] >>> [apiv2][query] GET https://secretmanager.googleapis.com/v1/projects/lego-checker/secrets/REBRICKABLE_KEY/versions/latest [none]
+[info] ✔  functions: Loaded functions definitions from source: helloWorld, getRebrickableKey. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: helloWorld, getRebrickableKey."}}
+[info] ✔  functions[us-central1-helloWorld]: http function initialized (http://127.0.0.1:5001/lego-checker/us-central1/helloWorld). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/lego-checker/us-central1/helloWorld)."}}
+[info] ✔  functions[us-central1-getRebrickableKey]: http function initialized (http://127.0.0.1:5001/lego-checker/us-central1/getRebrickableKey). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/lego-checker/us-central1/getRebrickableKey)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-07-16T13:42:52.635Z] <<< [apiv2][status] GET https://secretmanager.googleapis.com/v1/projects/lego-checker/secrets/REBRICKABLE_KEY/versions/latest 200
+[debug] [2023-07-16T13:42:52.636Z] <<< [apiv2][body] GET https://secretmanager.googleapis.com/v1/projects/lego-checker/secrets/REBRICKABLE_KEY/versions/latest {"name":"projects/1027901290632/secrets/REBRICKABLE_KEY/versions/1","createTime":"2023-07-16T12:26:33.213344Z","state":"ENABLED","replicationStatus":{"automatic":{}},"etag":"\"160099cad4f1a0\""}
+[debug] [2023-07-16T13:43:23.571Z] [work-queue] {"queuedWork":["/lego-checker/us-central1/getRebrickableKey-2023-07-16T13:43:23.571Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-07-16T13:43:23.571Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/lego-checker/us-central1/getRebrickableKey-2023-07-16T13:43:23.571Z"],"workRunningCount":1}
+[debug] [2023-07-16T13:43:23.572Z] Accepted request OPTIONS /lego-checker/us-central1/getRebrickableKey --> us-central1-getRebrickableKey
+[debug] [2023-07-16T13:43:23.574Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-07-16T13:43:23.574Z] [functions] Got req.url=/lego-checker/us-central1/getRebrickableKey, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/lego-checker/us-central1/getRebrickableKey, mapping to path=/"}}
+[debug] [2023-07-16T13:43:23.581Z] [worker-pool] addWorker(us-central1-getRebrickableKey) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-getRebrickableKey)"}}
+[debug] [2023-07-16T13:43:23.583Z] [worker-pool] Adding worker with key us-central1-getRebrickableKey, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-getRebrickableKey, total=1"}}
+[debug] [2023-07-16T13:43:24.452Z] [runtime-status] [2603] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.10.1","resolution":"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.10.1\",\"resolution\":\"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2023-07-16T13:43:24.453Z] [runtime-status] [2603] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.4.1","resolution":"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.4.1\",\"resolution\":\"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2023-07-16T13:43:24.453Z] [runtime-status] [2603] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2023-07-16T13:43:24.454Z] [runtime-status] [2603] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.4.1","resolution":"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.4.1\",\"resolution\":\"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2023-07-16T13:43:24.689Z] [runtime-status] [2603] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Checked functions.config() {\"config\":{}}"}}
+[debug] [2023-07-16T13:43:24.690Z] [runtime-status] [2603] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.4.1","resolution":"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.4.1\",\"resolution\":\"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js\"}}"}}
+[debug] [2023-07-16T13:43:24.690Z] [runtime-status] [2603] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.4.1","resolution":"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.4.1\",\"resolution\":\"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2023-07-16T13:43:24.691Z] [runtime-status] [2603] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.10.1","resolution":"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.10.1\",\"resolution\":\"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2023-07-16T13:43:24.694Z] [runtime-status] [2603] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.4.1","resolution":"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.4.1\",\"resolution\":\"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2023-07-16T13:43:24.694Z] [runtime-status] [2603] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.10.1","resolution":"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.10.1\",\"resolution\":\"/Users/alexlvovsky/learning/lego-checker/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2023-07-16T13:43:24.705Z] [runtime-status] [2603] Functions runtime initialized. {"cwd":"/Users/alexlvovsky/learning/lego-checker/functions","node_version":"16.17.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Functions runtime initialized. {\"cwd\":\"/Users/alexlvovsky/learning/lego-checker/functions\",\"node_version\":\"16.17.0\"}"}}
+[debug] [2023-07-16T13:43:24.705Z] [runtime-status] [2603] Listening to port: /var/folders/5_/8t33bvb12j53hfnb6lpdtkyc0000gr/T/fire_emu_46a31a6ca5a833f3.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[runtime-status] [2603] Listening to port: /var/folders/5_/8t33bvb12j53hfnb6lpdtkyc0000gr/T/fire_emu_46a31a6ca5a833f3.sock"}}
+[debug] [2023-07-16T13:43:24.806Z] [worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: IDLE"}}
+[debug] [2023-07-16T13:43:24.807Z] [worker-pool] submitRequest(triggerId=us-central1-getRebrickableKey) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRebrickableKey)"}}
+[info] i  functions: Beginning execution of "us-central1-getRebrickableKey" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Beginning execution of \"us-central1-getRebrickableKey\""}}
+[debug] [2023-07-16T13:43:24.808Z] [worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: BUSY"}}
+[debug] [2023-07-16T13:43:24.813Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRebrickableKey" in 5.984409ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Finished \"us-central1-getRebrickableKey\" in 5.984409ms"}}
+[debug] [2023-07-16T13:43:24.814Z] [worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: IDLE"}}
+[debug] [2023-07-16T13:43:24.814Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-07-16T13:43:24.815Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-07-16T13:43:24.815Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-07-16T13:43:24.816Z] [work-queue] {"queuedWork":["/lego-checker/us-central1/getRebrickableKey-2023-07-16T13:43:24.816Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-07-16T13:43:24.816Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/lego-checker/us-central1/getRebrickableKey-2023-07-16T13:43:24.816Z"],"workRunningCount":1}
+[debug] [2023-07-16T13:43:24.816Z] Accepted request POST /lego-checker/us-central1/getRebrickableKey --> us-central1-getRebrickableKey
+[debug] [2023-07-16T13:43:24.817Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-07-16T13:43:24.818Z] [functions] Got req.url=/lego-checker/us-central1/getRebrickableKey, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/lego-checker/us-central1/getRebrickableKey, mapping to path=/"}}
+[debug] [2023-07-16T13:43:24.818Z] [worker-pool] submitRequest(triggerId=us-central1-getRebrickableKey) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getRebrickableKey)"}}
+[info] i  functions: Beginning execution of "us-central1-getRebrickableKey" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Beginning execution of \"us-central1-getRebrickableKey\""}}
+[debug] [2023-07-16T13:43:24.818Z] [worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: BUSY"}}
+[info] >  {"severity":"WARNING","message":"No value found for secret parameter \"REBRICKABLE_KEY\". A function can only access a secret if you include the secret in the function's dependency array."} {"user":{"severity":"WARNING","message":"No value found for secret parameter \"REBRICKABLE_KEY\". A function can only access a secret if you include the secret in the function's dependency array."},"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"severity\":\"WARNING\",\"message\":\"No value found for secret parameter \\\"REBRICKABLE_KEY\\\". A function can only access a secret if you include the secret in the function's dependency array.\"}"}}
+[debug] [2023-07-16T13:43:24.831Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getRebrickableKey" in 12.805249ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Finished \"us-central1-getRebrickableKey\" in 12.805249ms"}}
+[debug] [2023-07-16T13:43:24.832Z] [worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"[worker-us-central1-getRebrickableKey-81a878ba-e33d-45ce-b84f-395c72634bc7]: IDLE"}}
+[debug] [2023-07-16T13:43:24.832Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-07-16T13:43:24.832Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getRebrickableKey"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-07-16T13:43:24.832Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
