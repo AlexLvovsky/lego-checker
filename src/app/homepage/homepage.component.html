@@ -3,8 +3,8 @@
     <a class="navbar-brand" routerLink="/"> LEGO Checker </a>
     {{ data$ | async }}
     <div class="navbar-user">
-      <ng-container *ngIf="authService.isLoggedIn; else guestTemplate">
-        <span>Hello, {{ authService.username }}!</span>
+      <ng-container *ngIf="authService.user$ | async as user; else guestTemplate">
+        <span>Hello, {{ user.displayName }}!</span>
         <button (click)="authService.logout()">Logout</button>
       </ng-container>
       <ng-template #guestTemplate>

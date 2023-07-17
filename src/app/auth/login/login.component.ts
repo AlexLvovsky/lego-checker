@@ -1,8 +1,6 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({ templateUrl: 'login.component.html' })
@@ -12,7 +10,6 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
   constructor(
-    @Optional() private auth: Auth,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -34,10 +31,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // reset alerts on submit
-    // this.alertService.clear();
-
-    // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
@@ -49,10 +42,8 @@ export class LoginComponent implements OnInit {
         this.form.controls['password'].value
       )
       .then(userCredential => {
-        // Signed in
-        // const user = userCredential.user;
         this.loading = false;
-        // ...
+        this.router.navigate(['/']);
       })
       .catch(error => {
         const errorCode = error.code;

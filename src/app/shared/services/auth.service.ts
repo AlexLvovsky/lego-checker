@@ -263,57 +263,56 @@
 //   }
 // }
 
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
-import * as auth from 'firebase/auth';
+import { inject, Injectable } from '@angular/core';
+import {
+  Auth,
+  authState,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  user,
+  getAuth,
+  User,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from '@angular/fire/auth';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   username: string | null = null;
   isLoggedIn = false;
+  user$ = user(this.auth);
 
-  constructor(
-    private afAuth: AngularFireAuth,
-    private router: Router
-  ) {
-    this.afAuth.authState.subscribe(user => {
-      if (user) {        
-        this.username = user.displayName;
-        this.isLoggedIn = true;
-      } else {
-        this.username = null;
-        this.isLoggedIn = false;
-      }
-    });
-  }
+  constructor(private auth: Auth) {}
 
-  signUp(firstName: string, lastName: string, email: string, password: string): Promise<any> {
-    return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        userCredentials.user?.updateProfile({
-          displayName: `${firstName} ${lastName}`
+  signUp(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string
+  ): Promise<any> {
+    return createUserWithEmailAndPassword(this.auth, email, password).then(
+      userCredentials => {
+        updateProfile(userCredentials.user, {
+          displayName: `${firstName} ${lastName}`,
         })
-        userCredentials.user?.reload()
-    });
+      }
+    );
   }
 
   emailSignIn(email: string, password: string): Promise<any> {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   googleLogin(): Promise<any> {
-    const provider = new auth.GoogleAuthProvider();
-    return this.afAuth.signInWithPopup(provider);
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(this.auth, provider);
   }
 
   logout(): Promise<any> {
-    return this.afAuth.signOut();
-  }
-
-  getCurrentUser(): any {
-    return this.afAuth.currentUser;
+    return signOut(this.auth);
   }
 
   updateUserName(userName: string) {
