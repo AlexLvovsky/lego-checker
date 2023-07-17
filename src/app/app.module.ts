@@ -27,14 +27,6 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './shared/services/auth.service';
-import { USE_EMULATOR as USE_FUNCTIONS_EMULATOR } from '@angular/fire/compat/functions';
-import {
-  AngularFireAuthModule,
-  USE_EMULATOR as USE_AUTH_EMULATOR,
-} from '@angular/fire/compat/auth';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireFunctionsModule } from '@angular/fire/compat/functions';
-
 @NgModule({
   declarations: [AppComponent, HomePageComponent],
   imports: [
@@ -42,9 +34,6 @@ import { AngularFireFunctionsModule } from '@angular/fire/compat/functions';
     CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
-    // AngularFireFunctionsModule,
-    // AngularFireAuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => {
       const auth = getAuth();
@@ -78,17 +67,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/compat/functions';
     }),
     BrowserAnimationsModule,
   ],
-  providers: [
-    AuthService,
-    // {
-    //   provide: USE_FUNCTIONS_EMULATOR,
-    //   useValue: environment.useEmulators ? ['localhost', 5001] : undefined,
-    // },
-    // {
-    //   provide: USE_AUTH_EMULATOR,
-    //   useValue: environment.useEmulators ? ['localhost', 9099] : undefined,
-    // },
-  ],
+  providers: [AuthService],
   bootstrap: [HomePageComponent],
 })
 export class AppModule {}

@@ -7,20 +7,25 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-import {onRequest} from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
-import {defineSecret} from "firebase-functions/params";
+import { onRequest } from 'firebase-functions/v2/https';
+import * as logger from 'firebase-functions/logger';
+// import { defineSecret } from 'firebase-functions/params';
+// import * as functions from 'firebase-functions';
 
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
 
+// const rebrickableKey = defineSecret('REBRICKABLE_KEY');
 export const helloWorld = onRequest((request, response) => {
-  logger.info("Hello logs!", {structuredData: true});
-  response.send("Hello from Firebase!");
+  logger.info('Hello logs!', { structuredData: true });
+  response.send('Hello from Firebase!');
 });
 
-const rebrickableKey = defineSecret("REBRICKABLE_KEY");
-export const getRebrickableKey = onRequest((request, response) => {
-  logger.log(rebrickableKey);
-  response.send(rebrickableKey.value());
-});
+export const getRebrickableKey = onRequest(
+  { secrets: ['REBRICKABLE_KEY'] },
+  (request, response) => {
+    logger.log(process.env.REBRICKABLE_KEY);
+    response.json({ key: process.env.REBRICKABLE_KEY });
+    // response.send(JSON.stringify({ key: process.env.REBRICKABLE_KEY }));
+  },
+);

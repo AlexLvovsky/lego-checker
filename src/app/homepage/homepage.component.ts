@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../shared/services/auth.service';
+import { httpsCallable, Functions } from '@angular/fire/functions';
 
 @Component({
   selector: 'app-homepage',
@@ -10,11 +11,13 @@ import { AuthService } from '../shared/services/auth.service';
 export class HomePageComponent implements OnInit {
   key$: any;
   data$: any;
-  constructor(public authService: AuthService) {
-    // const callable = this.functions.httpsCallable('getRebrickableKey');
+  constructor(
+    public authService: AuthService,
+    private funcs: Functions
+  ) {
+    // const callable = httpsCallable(funcs, 'getRebrickableKey');
     // this.data$ = callable({});
   }
 
-    ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }
