@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       )
       .then(userCredential => {
         this.loading = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/search']);
       })
       .catch(error => {
         const errorCode = error.code;

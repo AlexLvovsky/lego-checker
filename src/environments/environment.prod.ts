@@ -10,4 +10,6 @@ export const environment = {
     measurementId: 'G-DMB4XBQC8Y',
   },
   useEmulators: false,
+  host: 'https://rebrickable.com/api/v3/lego',
+  key: 'aa9e53e6f94c47ae523ed7798a6234bb',
 };

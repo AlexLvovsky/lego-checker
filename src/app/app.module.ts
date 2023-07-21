@@ -37,11 +37,11 @@ import { AuthService } from './shared/services/auth.service';
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => {
       const auth = getAuth();
-      if (location.hostname === 'localhost') {
-        connectAuthEmulator(auth, 'http://127.0.0.1:9099', {
-          disableWarnings: true,
-        });
-      }
+      // if (location.hostname === 'localhost') {
+      //   connectAuthEmulator(auth, 'http://127.0.0.1:9099', {
+      //     disableWarnings: true,
+      //   });
+      // }
       return auth;
     }),
     provideFirestore(() => {

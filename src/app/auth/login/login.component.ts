@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       )
       .then(userCredential => {
         this.loading = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/search']);
       })
       .catch(error => {
         const errorCode = error.code;
@@ -53,6 +53,6 @@ export class LoginComponent implements OnInit {
 
   async loginWithGoogle() {
     await this.authService.googleLogin();
-    await this.router.navigateByUrl('/');
+    await this.router.navigateByUrl('/search');
   }
 }
