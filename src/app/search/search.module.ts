@@ -6,9 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchService } from '../shared/services/search.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RequestInterceptor } from '../shared/request-interceptor';
+import { SearchItemComponent } from './search-item/search-item.component';
 
 @NgModule({
-  declarations: [SearchComponent],
+  declarations: [SearchComponent, SearchItemComponent],
   imports: [
     CommonModule,
     SearchRoutingModule,
