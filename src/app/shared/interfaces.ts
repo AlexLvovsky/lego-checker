@@ -29,8 +29,6 @@ export interface SearchResponse extends SearchResponsePartial {
 }
 
 export interface SearchResult {
-  designer_name?: string;
-  designer_url?: string;
   id: number | string;
   imgUrl?: string | SafeUrl;
   moc_url?: string;
