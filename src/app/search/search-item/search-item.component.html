@@ -32,6 +32,7 @@
           <strong>Quantity:</strong> {{ searchResult.quantity }}
         </li>
       </ul>
+      <button *ngIf="!isSetInUserSets(searchResult)" (click)="addToUserSets(searchResult)">Add</button>
     </div>
   </div>
 </div>

@@ -27,6 +27,7 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './shared/services/auth.service';
+import { DbService } from './shared/services/db.service';
 @NgModule({
   declarations: [AppComponent, HomePageComponent],
   imports: [
@@ -47,7 +48,7 @@ import { AuthService } from './shared/services/auth.service';
     provideFirestore(() => {
       const firestore = getFirestore();
       if (location.hostname === 'localhost') {
-        connectFirestoreEmulator(firestore, '127.0.0.1', 8080);
+        connectFirestoreEmulator(firestore, '127.0.0.1', 8088);
       }
       return firestore;
     }),
@@ -67,7 +68,7 @@ import { AuthService } from './shared/services/auth.service';
     }),
     BrowserAnimationsModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, DbService],
   bootstrap: [HomePageComponent],
 })
 export class AppModule {}

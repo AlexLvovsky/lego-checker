@@ -1,8 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, Subject, Subscription, of } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 import {
   SearchCriteria,
@@ -10,6 +15,9 @@ import {
   SearchResponse,
 } from '../shared/interfaces';
 import { SearchService } from '../shared/services/search.service';
+import { DbService } from '../shared/services/db.service';
+import { AuthService } from '../shared/services/auth.service';
+import { User } from 'firebase/auth';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +25,8 @@ import { SearchService } from '../shared/services/search.service';
   styleUrls: ['./search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnDestroy {
+  destroy = new Subject<void>();
   form: FormGroup<SearchForm>;
   searching = false;
   searchResults$!: Observable<SearchResponse | null>;
@@ -32,7 +41,18 @@ export class SearchComponent implements OnInit {
     },
   ];
 
-  constructor(private searchService: SearchService) {}
+  searchResponse: SearchResponse;
+  user: User;
+  userSetIds: any[];
+  private searchSubscription: Subscription;
+  private authSubscription: Subscription;
+  private dbSubscription: Subscription;
+
+  constructor(
+    private searchService: SearchService,
+    private dbService: DbService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup<SearchForm>({
@@ -45,6 +65,7 @@ export class SearchComponent implements OnInit {
         if (result) {
           this.searching = false;
         }
+        this.searchResponse = result;
       })
     );
 
@@ -54,6 +75,23 @@ export class SearchComponent implements OnInit {
         search_type: this.searchService.getCurrentSearchCriteria()?.search_type,
       });
     }
+
+    // Subscribe to AuthService to get the current user
+    this.authSubscription = this.authService.user$.subscribe(user => {
+      this.user = user;
+      if (user) {
+        this.dbSubscription = this.dbService
+          .getUserSets(user.uid)
+          .pipe(
+            tap(docs => console.log(docs)),
+            map(docs => docs.map(doc => doc['id'])) // Use map to extract the 'id' property from each document
+          )
+          .subscribe(setIds => {
+            console.log(setIds);
+            this.userSetIds = setIds;
+          });
+      }
+    });
   }
 
   // prevNext(url: string): void {
@@ -87,5 +125,21 @@ export class SearchComponent implements OnInit {
     this.searching = true;
 
     this.searchService.search(searchCriteria);
+  }
+
+  // Check if the set is in the user's sets (using setIds)
+  isSetInUserSets(legoSet: any): boolean {
+    return this.userSetIds?.includes(legoSet.setId);
+  }
+
+  ngOnDestroy() {
+    this.destroy.next();
+    this.destroy.complete();
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe;
+    }
+    if (this.dbSubscription) {
+      this.dbSubscription.unsubscribe;
+    }
   }
 }

@@ -263,16 +263,13 @@
 //   }
 // }
 
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   Auth,
-  authState,
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
   user,
-  getAuth,
-  User,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   updateProfile,
@@ -283,7 +280,7 @@ import {
 export class AuthService {
   username: string | null = null;
   isLoggedIn = false;
-  user$ = user(this.auth);
+  public readonly user$ = user(this.auth);
 
   constructor(private auth: Auth) {}
 
@@ -297,7 +294,7 @@ export class AuthService {
       userCredentials => {
         updateProfile(userCredentials.user, {
           displayName: `${firstName} ${lastName}`,
-        })
+        });
       }
     );
   }
