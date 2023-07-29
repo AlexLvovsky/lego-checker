@@ -1,0 +1,45 @@
+<div class="container">
+  <app-loading *ngIf="loading; else setContent" message="Loading..." />
+  <ng-template #setContent>
+    <!-- <div class="col-md-2" style="background-color: aqua; height: 100%;"></div>
+    <div class="col-md-2" style="background-color: blue;  height: 100%;"></div> -->
+    <div class="card mb-4">
+      <div class="row g-2">
+        <div class="col-md-4">
+          <img
+            [src]="set.set_img_url"
+            class="img-fluid rounded-start"
+            [alt]="set.name" />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title">{{ set.name }}</h1>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Set Number:</strong> {{ set.set_num }}
+              </li>
+              <li class="list-group-item">
+                <strong>Theme:</strong> {{ set.theme_name }}
+              </li>
+              <li class="list-group-item">
+                <strong>Year:</strong> {{ set.year }}
+              </li>
+              <li class="list-group-item">
+                <strong>Number of Parts:</strong> {{ set.num_parts }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+      <app-set-item [searchResults]="setParts"></app-set-item>
+    <!-- <ng-container *ngIf="setParts.length > 0">
+      <div class="d-flex flex-row justify-content-around mb-4">
+        <h2>Parts</h2>
+        <button (click)="saveMissingParts()">Save</button>
+      </div>
+
+      <app-set-item [searchResults]="setParts"></app-set-item>
+    </ng-container> -->
+  </ng-template>
+</div>

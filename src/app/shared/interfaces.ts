@@ -35,6 +35,8 @@ export interface SearchResult {
   name: string;
   quantity?: number;
   routerUrl?: string;
+  color?: string;
+  rgb?: string;
 }
 
 // SETS

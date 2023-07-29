@@ -1,0 +1,30 @@
+<div class="d-flex flex-row justify-content-around mb-4">
+  <h2>Parts</h2>
+  <button (click)="saveMissingParts()">Save</button>
+</div>
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-4">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Quantity I have</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let searchResult of searchResults">
+        <td>
+          <img [src]="searchResult.imgUrl" class="me-2" style="width: 100px" />
+        </td>
+        <td class="align-middle">{{ searchResult.quantity }}</td>
+        <td class="align-middle">
+          <input
+            style="width: 4rem"
+            type="number"
+            min="1"
+            max="{{ searchResult.quantity }}" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

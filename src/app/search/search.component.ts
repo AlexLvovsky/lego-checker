@@ -75,6 +75,7 @@ export class SearchComponent implements OnInit, OnDestroy {
         search_type: this.searchService.getCurrentSearchCriteria()?.search_type,
       });
     }
+    
 
     // Subscribe to AuthService to get the current user
     this.authSubscription = this.authService.user$.subscribe(user => {
@@ -87,7 +88,6 @@ export class SearchComponent implements OnInit, OnDestroy {
             map(docs => docs.map(doc => doc['id'])) // Use map to extract the 'id' property from each document
           )
           .subscribe(setIds => {
-            console.log(setIds);
             this.userSetIds = setIds;
           });
       }

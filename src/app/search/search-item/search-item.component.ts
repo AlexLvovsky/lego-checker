@@ -23,9 +23,7 @@ export class SearchItemComponent {
 
   // Add the set to the user's collection
   addToUserSets(legoSet: SearchResult) {
-    console.log(legoSet.name);
-
     // Add the set to the user's collection using DbService
-    this.dbService.addSetToUserSets(this.userId, legoSet.id);
+    this.dbService.addSetToUserSets(this.userId, legoSet);
   }
 }

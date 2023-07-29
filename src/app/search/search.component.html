@@ -29,11 +29,11 @@
   </form>
 
   <ng-container *ngIf="searching">
-    <p class="d-flex justify-content-center align-items-center">
+    <!-- <p class="d-flex justify-content-center align-items-center">
       <span class="spinner-border" role="status" aria-hidden="true"></span>
       Searching ...
-    </p>
-    <!-- <app-loading message="Searching..."></app-loading> -->
+    </p> -->
+    <app-loading message="Searching..."></app-loading>
   </ng-container>
 
   <ng-container *ngIf="searchResults$ | async as searchResults">

@@ -13,6 +13,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('../app/search/search.module').then(m => m.SearchModule),
   },
+  {
+    path: 'sets',
+    loadChildren: () =>
+      import('../app/sets/sets.module').then(m => m.SetsModule),
+  },
 ];
 
 @NgModule({
