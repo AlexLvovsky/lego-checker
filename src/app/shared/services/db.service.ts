@@ -8,6 +8,7 @@ import {
   setDoc,
 } from '@angular/fire/firestore';
 import { addDoc } from 'firebase/firestore';
+import { SearchResult } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -20,12 +21,12 @@ export class DbService {
     return collectionData(sets);
   }
 
-  addSetToUserSets(userId: string, setId: string | number) {
+  addSetToUserSets(userId: string, set: SearchResult) {
     // Get the reference to the "users" collection
-    const usersCollectionRef = collection(this.fireStore, 'users');
+    // const usersCollectionRef = collection(this.fireStore, 'users');
 
     // Create a reference to the user document using the user ID
-    const userDocRef = doc(this.fireStore, `users/${userId}`)
+    // const userDocRef = doc(this.fireStore, `users/${userId}`)
     // const userDocRef = usersCollectionRef.doc(userId);
 
     // Get the reference to the "sets" subcollection within the user document
@@ -39,10 +40,8 @@ export class DbService {
     // You can also set additional data for the set document if needed
     const data = {
       // Set properties of the set, e.g., name, parts, etc.
-      id: setId,
-      name: 'My Lego Set',
-      parts: 500,
-      // ...
+      id: set.id,
+      name: set.name,
     };
 
     addDoc(userSetsCollectionRef, data);
@@ -50,5 +49,10 @@ export class DbService {
     // Set the data for the set document
     // return setDoc(setDocRef, data)
     // return setDocRef.set(data);
+  }
+
+  getMissingParts(userId, setId) {
+    const missingParts = collection(this.fireStore, `users/${userId}/sets/${setId}/missingParts`);
+    return collectionData(missingParts);
   }
 }
