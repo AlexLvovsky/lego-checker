@@ -32,7 +32,8 @@
           <strong>Quantity:</strong> {{ searchResult.quantity }}
         </li>
       </ul>
-      <button *ngIf="!isSetInUserSets(searchResult)" (click)="addToUserSets(searchResult)">Add</button>
+      <button *ngIf="!(authService.user$| async)">Login to add</button>
+      <button *ngIf="(authService.user$| async) && !isSetInUserSets(searchResult)" (click)="addToUserSets(searchResult)">Add</button>
     </div>
   </div>
 </div>

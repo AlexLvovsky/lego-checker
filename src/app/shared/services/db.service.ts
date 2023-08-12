@@ -51,8 +51,12 @@ export class DbService {
     // return setDocRef.set(data);
   }
 
-  getMissingParts(userId, setId) {
-    const missingParts = collection(this.fireStore, `users/${userId}/sets/${setId}/missingParts`);
-    return collectionData(missingParts);
+  getOwnedParts(userId, setId) {
+    const ownedParts = collection(this.fireStore, `users/${userId}/sets/${setId}/ownedParts`);
+    return collectionData(ownedParts);
+  }
+
+  saveOwnedParts(userId, setId, parts) {
+
   }
 }

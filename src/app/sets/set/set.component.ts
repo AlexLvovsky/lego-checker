@@ -63,12 +63,10 @@ export class SetComponent implements OnInit {
         return 0;
       });
       this.setParts = sortedParts;
+      console.log(this.setParts);
+      
 
       this.loading = false;
     });
-  }
-
-  saveMissingParts() {
-    
   }
 }

@@ -84,7 +84,7 @@ export class SearchComponent implements OnInit, OnDestroy {
         this.dbSubscription = this.dbService
           .getUserSets(user.uid)
           .pipe(
-            tap(docs => console.log(docs)),
+            tap(docs => console.log('User sets', docs)),
             map(docs => docs.map(doc => doc['id'])) // Use map to extract the 'id' property from each document
           )
           .subscribe(setIds => {

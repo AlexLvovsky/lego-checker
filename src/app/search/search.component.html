@@ -40,8 +40,7 @@
     <h6 class="text-center mb-4">Total Found: {{ searchResults.count }}</h6>
     <app-search-item
       [searchResults]="searchResults.results"
-      [userSetIds]="userSetIds"
-      [userId]="user.uid"></app-search-item>
+      [userSetIds]="userSetIds"></app-search-item>
 
     <!-- <div *ngIf="searchResults.previous || searchResults.next" class="d-flex justify-content-center mb-4">
       <div class="btn-group" role="group" aria-label="Page Navigation">

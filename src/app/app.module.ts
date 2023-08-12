@@ -47,23 +47,23 @@ import { DbService } from './shared/services/db.service';
     }),
     provideFirestore(() => {
       const firestore = getFirestore();
-      if (location.hostname === 'localhost') {
-        connectFirestoreEmulator(firestore, '127.0.0.1', 8088);
-      }
+      // if (location.hostname === 'localhost') {
+      //   connectFirestoreEmulator(firestore, '127.0.0.1', 8088);
+      // }
       return firestore;
     }),
     provideFunctions(() => {
       const functions = getFunctions();
-      if (location.hostname === 'localhost') {
-        connectFunctionsEmulator(functions, '127.0.0.1', 5001);
-      }
+      // if (location.hostname === 'localhost') {
+      //   connectFunctionsEmulator(functions, '127.0.0.1', 5001);
+      // }
       return functions;
     }),
     provideStorage(() => {
       const storage = getStorage();
-      if (location.hostname === 'localhost') {
-        connectStorageEmulator(storage, '127.0.0.1', 5001);
-      }
+      // if (location.hostname === 'localhost') {
+      //   connectStorageEmulator(storage, '127.0.0.1', 5001);
+      // }
       return storage;
     }),
     BrowserAnimationsModule,

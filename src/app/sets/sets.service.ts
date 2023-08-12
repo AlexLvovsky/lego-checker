@@ -95,7 +95,8 @@ export class SetsService {
               result.part.part_img_url || this._noImageUrl;
 
             return {
-              id: result.part.part_num,
+              id: result.id,
+              partNum: result.part.part_num,
               imgUrl: result.part.part_img_url,
               name: result.part.name,
               routerUrl: `/parts/${result.part.part_num}`,
@@ -146,7 +147,8 @@ export class SetsService {
               result.part.part_img_url || this._noImageUrl;
 
             return {
-              id: result.part.part_num,
+              id: result.id,
+              partNum: result.part.part_num,
               imgUrl: result.part.part_img_url,
               name: result.part.name,
               quantity: result.quantity,
